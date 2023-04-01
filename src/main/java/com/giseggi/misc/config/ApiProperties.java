@@ -12,4 +12,6 @@ public class ApiProperties {
     String clientId;
 
     String clientSecret;
+
+    String detectLangUrl;
 }

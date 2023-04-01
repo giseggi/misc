@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class ApiPropertiesTSest {
+class ApiPropertiesTest {
 
     @Value("${naver.open-api.client-id}")
     private String id;
