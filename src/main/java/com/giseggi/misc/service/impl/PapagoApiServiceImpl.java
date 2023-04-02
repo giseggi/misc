@@ -4,6 +4,8 @@ import com.giseggi.misc.config.ApiProperties;
 import com.giseggi.misc.service.PapagoApiService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.configurationprocessor.json.JSONException;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -22,10 +24,10 @@ public class PapagoApiServiceImpl implements PapagoApiService {
     private final ApiProperties apiProperties;
 
     @Override
-    public String detectLang(String text) {
+    public String detectLang(String text) throws JSONException {
         String query;
         try {
-            query = URLEncoder.encode("만나서 반갑습니다.", "UTF-8");
+            query = URLEncoder.encode(text, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("인코딩 실패", e);
         }
@@ -35,13 +37,16 @@ public class PapagoApiServiceImpl implements PapagoApiService {
         requestHeaders.put("X-Naver-Client-Secret", apiProperties.getClientSecret());
 
         String responseBody = post(apiProperties.getDetectLangUrl(), requestHeaders, query);
+        JSONObject jSONObject = new JSONObject(responseBody);
 
-        return responseBody;
+        String langCode = jSONObject.getString("langCode");
+
+        return langCode;
     }
 
     private static String post(String apiUrl, Map<String, String> requestHeaders, String text){
         HttpURLConnection con = connect(apiUrl);
-        String postParams =  "query="  + text; //원본언어: 한국어 (ko) -> 목적언어: 영어 (en)
+        String postParams =  "query="  + text;
         try {
             con.setRequestMethod("POST");
             for(Map.Entry<String, String> header :requestHeaders.entrySet()) {
