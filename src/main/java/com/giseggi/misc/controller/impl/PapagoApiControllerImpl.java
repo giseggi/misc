@@ -20,7 +20,6 @@ public class PapagoApiControllerImpl implements PapagoApiController {
     public String detectLang(@RequestParam(value = "text", required = false, defaultValue = "hello") String text) {
         try {
             String lang = papagoApiService.detectLang(text);
-            String test = "this is test";
             return String.format("detected lang is %s! :)", lang);
         } catch (Exception e) {
             return "error occurred :(";
