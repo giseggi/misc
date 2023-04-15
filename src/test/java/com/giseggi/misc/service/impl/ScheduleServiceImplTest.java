@@ -11,7 +11,6 @@ class ScheduleServiceImplTest {
     @Autowired
     private ScheduleService testClass;
 
-
     @Test
     void test() {
         testClass.printLog();
