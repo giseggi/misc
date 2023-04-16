@@ -1,7 +1,7 @@
-package com.giseggi.misc.service.impl;
+package com.giseggi.misc.service.papagoApi.impl;
 
 import com.giseggi.misc.config.ApiProperties;
-import com.giseggi.misc.service.PapagoApiService;
+import com.giseggi.misc.service.papagoApi.PapagoApiService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.configurationprocessor.json.JSONException;

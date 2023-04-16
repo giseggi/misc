@@ -1,6 +1,6 @@
-package com.giseggi.misc.service.impl;
+package com.giseggi.misc.service.schedule.impl;
 
-import com.giseggi.misc.service.ScheduleService;
+import com.giseggi.misc.service.schedule.ScheduleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

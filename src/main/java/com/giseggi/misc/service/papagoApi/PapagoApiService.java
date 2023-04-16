@@ -1,4 +1,4 @@
-package com.giseggi.misc.service;
+package com.giseggi.misc.service.papagoApi;
 
 import org.springframework.boot.configurationprocessor.json.JSONException;
 

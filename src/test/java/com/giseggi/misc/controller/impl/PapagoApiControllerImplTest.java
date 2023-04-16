@@ -1,7 +1,7 @@
 package com.giseggi.misc.controller.impl;
 
 import com.giseggi.misc.controller.PapagoApiController;
-import com.giseggi.misc.service.PapagoApiService;
+import com.giseggi.misc.service.papagoApi.PapagoApiService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.params.ParameterizedTest;
