@@ -3,6 +3,7 @@ spring:
     import:
       - application-api.yaml
       - application-kafka.yaml
+      - application-redis.yaml
 
 server:
   port: 8081
